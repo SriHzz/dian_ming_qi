@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点名器</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      body{
+        background-color: #7f8fa6;
+      }
+      .main{
+        width: 450px;
+        height: 330px;
+        border-radius: 10px;
+        box-shadow:10px 10px 10px #718093;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        background-color: white;
+        overflow: hidden;
+      }
+      .name{
+        margin: 45px auto;
+        width: 260px;
+        height: 100px;
+        /* background-color: #bfa; */
+        line-height: 100px;
+        text-align: center;
+        font-size: 50px;
+      }
+      .button{
+        display: inline-block;
+        width: 80px;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        font-size: 32px;
+        font-weight: bold;
+        /* background-color: #bfa; */
+        position: relative;
+        left: 182px;
+        cursor: pointer;
+      }
+    </style>
+    <!-- <script src="./js/jquery.min.js"></script> -->
+    <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="https://www.jq22.com/jquery/jquery-migrate-1.2.1.min.js"></script>
+  </head>
+<body>
+  <div class="main">
+    <div class="name"><span id="ko">雷军</span></div>
+    <div class="button">开始</div>
+  </div>
+  <script>
+    var names=['刘备','关羽','张飞','赵云','马超','夏侯惇','吕布','诸葛亮','司马懿','曹操','孙尚香','貂蝉','雷军','余承东','赵明','罗永浩','卢伟斌','黄章','库克','刘作虎','常程','李楠','钟文泽','小白','那岩','极客湾','宋江','李逵','林冲','武松'];
+      // $(function (){
+      //   var ydm;
+      //   $(".button").on("click",function (){
+      //       ydm = setInterval(function(){
+      //       var index=Math.floor(Math.random()*names.length);
+      //       val=names[index];
+      //       $('#ko').css({'color':'#f00'}).text(val);
+      //     },50)
+      //   })
+      //   $(".stop").on("click",function (){
+      //     clearInterval(ydm)
+      //     $('#ko').css({'color':'#000'}).text(val);
+      //   })
+      // })
+      var time;
+      $(".button").toggle(
+        function (){
+          $(this).css({"color":"red"}).html('停止');
+          time = setInterval(function(){
+            var index=Math.floor(Math.random()*names.length);
+            var val=names[index];
+            $('#ko').text(val);
+          },50)
+        },
+        function (){
+          $(this).css({"color":"black"}).html("开始");
+          clearInterval(time);
+        }
+      )
+  </script>
+</body>
+</html>
